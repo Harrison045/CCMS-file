@@ -1,0 +1,1946 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>CCMS · Proposal Deck</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<script type="application/json" id="speaker-notes">
+[
+  "Open with gravity, not hype. Read the title slowly. This is a serious proposal for a serious institution.",
+  "Pause on the epigraph. Let the room read it. Growth requires infrastructure — that's the frame.",
+  "Three sentences, then move. The church is growing fast. The systems haven't kept up. CCMS is the backbone.",
+  "Slow down here. The number on the slide is the point: every week, members walk out and we don't know. Name the five gaps briefly but lean into the human cost.",
+  "Flip the tone. Same scale that creates the problem creates the leverage. If we act, we become a truly networked church.",
+  "Walk the hierarchy top to bottom in one breath. Everyone sees what their role permits — that's the principle. Don't dwell.",
+  "Walk the five steps as a story — a member joins, shows up, stops coming, gets noticed, leadership acts. That's the system working.",
+  "This slide is about relatability. Every person in the room should see their role here. Let them read it. Ask: which column represents you?",
+  "The roadmap is the promise. Foundation in six months. Intelligence in year two. Every phase ships working software.",
+  "Point to Phase 1 — 'active, starts on signature.' Emphasize that every phase delivers value before the next begins.",
+  "These are proven, enterprise-grade tools. Not experimental. Not custom. Chosen for longevity and the church's long-term ownership of this system.",
+  "Walk the breakdown: 75% goes to engineering — the people building it. Say the number clearly. Sixty thousand cedis, stage-released, fully accountable.",
+  "Future phases are indicative — we scope them together as we go. The retainer keeps the system healthy after launch.",
+  "Three dimensions of value. Retention, efficiency, intelligence. Tie each back to ministry, not technology.",
+  "Close with the five next steps. Ask for the mandate. Do not soften the ask."
+]
+</script>
+
+<style>
+/* =====================================================================
+   CCMS Proposal Deck — tokens
+   Tweakable via the Tweaks panel (palette + heading font).
+   ===================================================================== */
+:root {
+  /* Palette: deep navy + gold (default) */
+  --ink:        #0B2545;
+  --ink-soft:   #162D4A;
+  --paper:      #F5F1E8;
+  --paper-2:    #EDE6D3;
+  --gold:       #C9A54A;
+  --gold-soft:  #E8D28A;
+  --rule:       rgba(11,37,69,0.16);
+  --muted:      rgba(11,37,69,0.58);
+
+  /* Typography */
+  --display: "Instrument Serif", "Newsreader", Georgia, serif;
+  --sans:    "Manrope", -apple-system, Helvetica, Arial, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+
+/* Palette variants */
+html[data-palette="ink-bronze"] {
+  --ink: #111111;
+  --ink-soft: #1C1C1C;
+  --paper: #FAFAF7;
+  --paper-2: #F0EDE5;
+  --gold: #9C6A2E;
+  --gold-soft: #C48B4E;
+  --rule: rgba(17,17,17,0.14);
+  --muted: rgba(17,17,17,0.55);
+}
+html[data-palette="sage"] {
+  --ink: #1E3A32;
+  --ink-soft: #29463D;
+  --paper: #F5F2EC;
+  --paper-2: #E8E2D4;
+  --gold: #B08848;
+  --gold-soft: #D6B787;
+  --rule: rgba(30,58,50,0.18);
+  --muted: rgba(30,58,50,0.60);
+}
+
+/* Heading font variants */
+html[data-display="fraunces"] { --display: "Fraunces", "Instrument Serif", Georgia, serif; }
+html[data-display="newsreader"] { --display: "Newsreader", "Instrument Serif", Georgia, serif; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #000; }
+body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+/* ========== Slide base ========== */
+.slide {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.slide.ink { background: var(--ink); color: var(--paper); }
+.slide.paper2 { background: var(--paper-2); }
+
+/* Common header strip */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: var(--mono);
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--rule);
+}
+.ink .header { color: rgba(245,241,232,0.55); border-bottom-color: rgba(245,241,232,0.18); }
+.header .idx { color: var(--gold); }
+.header .nav { font-feature-settings: "tnum" 1; }
+
+/* Section number chip (large numeral) */
+.section-num {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: 34px;
+  color: var(--gold);
+  line-height: 1;
+}
+
+/* Headings */
+h1.display {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 148px;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+h2.display {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 104px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+h3.display {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 24px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 36px 0;
+}
+.body { font-size: 30px; line-height: 1.45; color: var(--ink); max-width: 1200px; }
+.ink .body { color: rgba(245,241,232,0.84); }
+.body.lg { font-size: 36px; line-height: 1.4; }
+.body.sm { font-size: 26px; line-height: 1.5; }
+
+.italic { font-style: italic; font-family: var(--display); font-weight: 300; }
+
+/* Label pairs (stat blocks) */
+.stats { display: flex; gap: 80px; }
+.stat .value {
+  font-family: var(--display);
+  font-size: 96px;
+  line-height: 1;
+  color: var(--gold);
+  letter-spacing: -0.01em;
+}
+.stat .k {
+  font-family: var(--mono);
+  font-size: 24px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 14px;
+}
+.stat .sub { font-size: 24px; color: var(--ink); margin-top: 6px; }
+.ink .stat .sub { color: rgba(245,241,232,0.75); }
+.ink .stat .k { color: rgba(245,241,232,0.55); }
+
+/* Tweaks panel */
+#tweaks {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2147483500;
+  background: #0B2545;
+  color: #F5F1E8;
+  padding: 18px 20px;
+  border-radius: 12px;
+  font-family: var(--sans);
+  font-size: 13px;
+  display: none;
+  width: 260px;
+  box-shadow: 0 14px 50px rgba(0,0,0,0.35);
+}
+#tweaks.on { display: block; }
+#tweaks h4 {
+  margin: 0 0 12px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #E8D28A;
+  font-weight: 500;
+}
+#tweaks .row { margin-bottom: 14px; }
+#tweaks label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245,241,232,0.55);
+  margin-bottom: 6px;
+}
+#tweaks .opts { display: flex; gap: 4px; flex-wrap: wrap; }
+#tweaks button {
+  flex: 1;
+  min-width: 50px;
+  padding: 6px 8px;
+  background: rgba(245,241,232,0.06);
+  border: 1px solid rgba(245,241,232,0.12);
+  color: inherit;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+#tweaks button:hover { background: rgba(245,241,232,0.14); }
+#tweaks button.active { background: #E8D28A; color: #0B2545; border-color: #E8D28A; }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+<!-- ========== 01 · COVER (variant A) ========== -->
+<section data-label="Cover" class="slide ink" data-slide="cover-a">
+  <div class="header" style="border-bottom-color: rgba(245,241,232,0.18)">
+    <span><span class="idx" style="color: var(--gold)">CCMS</span> · TECHNOLOGY PROPOSAL · 2026</span>
+    <span>CONFIDENTIAL · 01 / 11</span>
+  </div>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; padding-top: 60px; padding-bottom: 20px;">
+    <div>
+      <div class="eyebrow" style="color: var(--gold-soft); margin-bottom: 60px; font-size: 24px;">A unified digital platform for the Seventh-day Adventist Church</div>
+      <h1 class="display" style="color: var(--paper); max-width: 1500px;">
+        Centralized<br/>
+        Church<br/>
+        Management<br/>
+        <span style="font-style: italic; color: var(--gold-soft);">System.</span>
+      </h1>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid rgba(245,241,232,0.18); padding-top: 32px; margin-top: 40px;">
+      <div style="display:flex; gap: 80px;">
+        <div>
+          <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: rgba(245,241,232,0.45); text-transform: uppercase;">Prepared by</div>
+          <div style="font-family: var(--display); font-size: 34px; margin-top: 6px;">Harrison Boateng Prince</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: rgba(245,241,232,0.55); margin-top: 4px;">Software Developer · odameharrison13@gmail.com</div>
+        </div>
+      </div>
+      <div style="text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: rgba(245,241,232,0.45); text-transform: uppercase;">
+        CCMS · v1.0
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 01 · COVER (variant B) ========== -->
+<section data-label="Cover — editorial" class="slide" data-slide="cover-b" style="background: var(--paper); padding: 0;">
+  <div style="display:grid; grid-template-columns: 1.2fr 1fr; height:100%;">
+    <div style="padding: 100px; display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;">01 · Cover</div>
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-top: 6px;">Technology Proposal · 2026 · Confidential</div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 28px;">for the SDA Church</div>
+        <h1 class="display" style="font-size: 168px; line-height: 0.94;">
+          A church,<br/>
+          <span class="italic">connected.</span>
+        </h1>
+        <div class="body lg" style="margin-top: 40px; max-width: 760px; color: var(--muted);">
+          Centralized Church Management System — a unified digital infrastructure for every member, every church, every district.
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; border-top: 1px solid var(--rule); padding-top: 28px;">
+        <div>
+          <div style="font-family: var(--display); font-size: 30px;">Harrison Boateng Prince</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: var(--muted); margin-top: 4px;">Software Developer · odameharrison13@gmail.com</div>
+        </div>
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;">v1.0</div>
+      </div>
+    </div>
+
+    <!-- Geometric panel -->
+    <div style="background: var(--ink); position: relative; overflow: hidden;">
+      <svg viewBox="0 0 800 1080" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="display:block;">
+        <defs>
+          <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(245,241,232,0.06)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="800" height="1080" fill="url(#grid)"/>
+        <!-- concentric circles: network metaphor -->
+        <g stroke="#E8D28A" fill="none" stroke-width="1">
+          <circle cx="400" cy="540" r="80" opacity="0.9"/>
+          <circle cx="400" cy="540" r="180" opacity="0.6"/>
+          <circle cx="400" cy="540" r="300" opacity="0.35"/>
+          <circle cx="400" cy="540" r="440" opacity="0.18"/>
+        </g>
+        <g fill="#E8D28A">
+          <circle cx="400" cy="540" r="6"/>
+          <circle cx="320" cy="540" r="3"/>
+          <circle cx="480" cy="540" r="3"/>
+          <circle cx="400" cy="460" r="3"/>
+          <circle cx="400" cy="620" r="3"/>
+          <circle cx="220" cy="540" r="3"/>
+          <circle cx="580" cy="540" r="3"/>
+          <circle cx="400" cy="360" r="3"/>
+          <circle cx="400" cy="720" r="3"/>
+          <circle cx="275" cy="413" r="3"/>
+          <circle cx="525" cy="413" r="3"/>
+          <circle cx="275" cy="667" r="3"/>
+          <circle cx="525" cy="667" r="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 02 · EPIGRAPH ========== -->
+<section data-label="Epigraph" class="slide paper2">
+  <div class="header">
+    <span><span class="idx">00</span> · Opening</span>
+    <span class="nav">02 / 11</span>
+  </div>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; max-width: 1500px;">
+    <div class="eyebrow">An observation</div>
+    <div style="font-family: var(--display); font-weight: 300; font-size: 104px; line-height: 1.08; letter-spacing: -0.01em;">
+      The church is <span class="italic" style="color: var(--gold);">growing faster</span> than its infrastructure can carry.
+    </div>
+    <div class="body lg" style="margin-top: 56px; max-width: 1100px; color: var(--muted);">
+      Every week, members walk through a church door and never return — and no one knows.
+    </div>
+  </div>
+
+  <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase;">
+    — The case for CCMS
+  </div>
+</section>
+
+<!-- ========== 03 · EXECUTIVE SUMMARY ========== -->
+<section data-label="Executive Summary" class="slide">
+  <div class="header">
+    <span><span class="idx">01</span> · Executive Summary</span>
+    <span class="nav">03 / 11</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1.25fr 1fr; gap: 120px; padding-top: 60px;">
+    <div style="display:flex; flex-direction:column; justify-content: center; gap: 48px;">
+      <div class="eyebrow">In one paragraph</div>
+      <h2 class="display" style="margin-bottom: 0;">
+        A purpose-built<br/>
+        <span class="italic" style="color: var(--gold);">operational backbone</span><br/>
+        for the SDA Church.
+      </h2>
+      <div class="body" style="margin-top: 0; max-width: 900px; color: var(--muted);">
+        CCMS is a cloud-native platform that unifies every church under a single digital infrastructure — giving leadership the visibility to act before a member is lost, the tools to communicate at scale, and the foundation to grow as a truly connected global network.
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; justify-content: center; border-left: 1px solid var(--rule); padding-left: 80px; gap: 44px;">
+      <div class="stat">
+        <div class="value">3–6<span style="font-size: 48px; color: var(--muted);"> mo</span></div>
+        <div class="k">Phase 1 live</div>
+        <div class="sub">Foundation delivered before year-end</div>
+      </div>
+      <div class="stat">
+        <div class="value">GHS 60K</div>
+        <div class="k">Initial investment</div>
+        <div class="sub">Stage-released · fully accountable</div>
+      </div>
+      <div class="stat">
+        <div class="value">∞</div>
+        <div class="k">Scalable</div>
+        <div class="sub">No ceiling on growth</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 04 · THE PROBLEM ========== -->
+<section data-label="The Problem" class="slide ink">
+  <div class="header">
+    <span><span class="idx" style="color: var(--gold)">02</span> · Strategic Context</span>
+    <span class="nav">04 / 11</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.4fr; gap: 80px; padding-top: 36px; min-height: 0;">
+    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="eyebrow" style="color: var(--gold-soft);">The problem</div>
+        <h2 class="display" style="color: var(--paper); font-size: 88px;">Five gaps<br/>the church<br/><span class="italic" style="color: var(--gold-soft);">cannot close</span><br/>without a system.</h2>
+      </div>
+      <div style="font-family: var(--display); font-style: italic; font-size: 30px; line-height: 1.3; color: var(--gold-soft); max-width: 640px; border-left: 2px solid var(--gold); padding-left: 24px; margin-top: 32px;">
+        "Every week, members walk through a church door and never return — and no one knows."
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap: 0; align-self:stretch; justify-content: center;">
+      <!-- Gap rows -->
+      <div style="display:grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 16px 0; border-top: 1px solid rgba(245,241,232,0.16);">
+        <div class="section-num" style="color: var(--gold-soft); font-size: 26px;">01</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 32px; color: var(--paper); line-height: 1.1;">No real-time visibility</div>
+          <div style="font-size: 24px; color: rgba(245,241,232,0.65); margin-top: 6px; line-height: 1.4;">District and national leaders wait on manual submissions; data arrives already stale.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 16px 0; border-top: 1px solid rgba(245,241,232,0.16);">
+        <div class="section-num" style="color: var(--gold-soft); font-size: 26px;">02</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 32px; color: var(--paper); line-height: 1.1;">No signal when members disengage</div>
+          <div style="font-size: 24px; color: rgba(245,241,232,0.65); margin-top: 6px; line-height: 1.4;">When attendance fades, no system detects it or triggers pastoral follow-up.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 16px 0; border-top: 1px solid rgba(245,241,232,0.16);">
+        <div class="section-num" style="color: var(--gold-soft); font-size: 26px;">03</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 32px; color: var(--paper); line-height: 1.1;">No reliable communication layer</div>
+          <div style="font-size: 24px; color: rgba(245,241,232,0.65); margin-top: 6px; line-height: 1.4;">WhatsApp groups and flyers reach only a fraction of the congregation.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 16px 0; border-top: 1px solid rgba(245,241,232,0.16);">
+        <div class="section-num" style="color: var(--gold-soft); font-size: 26px;">04</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 32px; color: var(--paper); line-height: 1.1;">No structured event coordination</div>
+          <div style="font-size: 24px; color: rgba(245,241,232,0.65); margin-top: 6px; line-height: 1.4;">Camp meetings and district programs are hard to publicize across locations.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 16px 0; border-top: 1px solid rgba(245,241,232,0.16); border-bottom: 1px solid rgba(245,241,232,0.16);">
+        <div class="section-num" style="color: var(--gold-soft); font-size: 26px;">05</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 32px; color: var(--paper); line-height: 1.1;">No leadership intelligence</div>
+          <div style="font-size: 24px; color: rgba(245,241,232,0.65); margin-top: 6px; line-height: 1.4;">Pastors and admins operate without data on growth, engagement, or attendance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 05 · OPPORTUNITY ========== -->
+<section data-label="The Opportunity" class="slide paper2">
+  <div class="header">
+    <span><span class="idx">02</span> · Strategic Context</span>
+    <span class="nav">05 / 11</span>
+  </div>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap: 80px; padding-top: 40px;">
+    <div style="max-width: 1500px;">
+      <div class="eyebrow">The opportunity</div>
+      <h2 class="display">
+        The same scale that <span class="italic" style="color: var(--gold);">creates the problem</span> creates the leverage.
+      </h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 48px;">
+      <div style="border-top: 1px solid var(--ink); padding-top: 22px;">
+        <div class="section-num">01</div>
+        <div style="font-family: var(--display); font-size: 38px; line-height: 1.1; margin-top: 18px;">Re-engage at-risk members</div>
+        <div class="body sm" style="color: var(--muted); margin-top: 14px;">Before they are permanently lost.</div>
+      </div>
+      <div style="border-top: 1px solid var(--ink); padding-top: 22px;">
+        <div class="section-num">02</div>
+        <div style="font-family: var(--display); font-size: 38px; line-height: 1.1; margin-top: 18px;">Communicate network-wide</div>
+        <div class="body sm" style="color: var(--muted); margin-top: 14px;">Instantly — to all, a district, or a single church.</div>
+      </div>
+      <div style="border-top: 1px solid var(--ink); padding-top: 22px;">
+        <div class="section-num">03</div>
+        <div style="font-family: var(--display); font-size: 38px; line-height: 1.1; margin-top: 18px;">Equip leadership with data</div>
+        <div class="body sm" style="color: var(--muted); margin-top: 14px;">Evidence-based pastoral and operational decisions.</div>
+      </div>
+      <div style="border-top: 1px solid var(--ink); padding-top: 22px;">
+        <div class="section-num">04</div>
+        <div style="font-family: var(--display); font-size: 38px; line-height: 1.1; margin-top: 18px;">Lay the foundation for global reach</div>
+        <div class="body sm" style="color: var(--muted); margin-top: 14px;">A truly networked church at international scale.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 06 · SOLUTION / ROLE HIERARCHY ========== -->
+<section data-label="Solution · Roles" class="slide">
+  <div class="header">
+    <span><span class="idx">03</span> · Solution Architecture</span>
+    <span class="nav">06 / 11</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.3fr; gap: 120px; padding-top: 60px;">
+    <div style="display:flex; flex-direction:column; justify-content: center; gap: 40px;">
+      <div class="eyebrow">Role hierarchy</div>
+      <h2 class="display" style="margin-bottom: 0;">
+        Everyone sees<br/>
+        <span class="italic" style="color: var(--gold);">precisely</span> what<br/>
+        their role permits.
+      </h2>
+      <div class="body" style="margin-top: 0; color: var(--muted); max-width: 680px;">
+        Cloud-native, multi-tenant — from the individual congregation to the national leadership, structured around a clear role hierarchy.
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; align-self:stretch; justify-content:center;">
+      <!-- pyramid rows -->
+      <div class="role-row" style="display:grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); padding-top: 4px;">01</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 36px; line-height: 1.1;">Super Administrator</div>
+          <div style="font-size: 24px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Full access across the SDA network — all districts, all churches. Sets global policy.</div>
+        </div>
+      </div>
+      <div class="role-row" style="display:grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); padding-top: 4px;">02</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 36px; line-height: 1.1;">District Administrator</div>
+          <div style="font-size: 24px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Manages churches within their district. District-wide reports and broadcasts.</div>
+        </div>
+      </div>
+      <div class="role-row" style="display:grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); padding-top: 4px;">03</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 36px; line-height: 1.1;">Pastor</div>
+          <div style="font-size: 24px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Oversees individual church(es) — congregation data, comms, events, attendance.</div>
+        </div>
+      </div>
+      <div class="role-row" style="display:grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 18px 0; border-bottom: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); padding-top: 4px;">04</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 36px; line-height: 1.1;">Church Leader</div>
+          <div style="font-size: 24px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Ministry-specific access — groups, volunteers, or departments within a church.</div>
+        </div>
+      </div>
+      <div class="role-row" style="display:grid; grid-template-columns: 90px 1fr; gap: 32px; padding: 18px 0;">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); padding-top: 4px;">05</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 36px; line-height: 1.1;">Member</div>
+          <div style="font-size: 24px; color: var(--muted); margin-top: 4px; line-height: 1.4;">Personal profile, event registration, and direct communication from leadership.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07b · HOW CCMS WORKS ========== -->
+<section data-label="How CCMS Works" class="slide paper2">
+  <div class="header">
+    <span><span class="idx">04</span> · System Usage</span>
+  </div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow">How it works</div>
+    <h2 class="display" style="max-width: 1400px;">From registration to <span class="italic" style="color: var(--gold);">data-driven decision</span> — every step connected.</h2>
+  </div>
+
+  <div style="flex:1; display:flex; align-items:center; margin-top: 50px; position: relative;">
+    <!-- connector line -->
+    <div style="position:absolute; top: 56px; left: 100px; right: 100px; height: 2px; background: var(--rule);"></div>
+    <div style="position:absolute; top: 56px; left: 100px; width: 25%; height: 2px; background: var(--gold);"></div>
+
+    <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap: 32px; width: 100%;">
+      <div style="display:flex; flex-direction:column;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom: 28px;">
+          <span style="font-family: var(--mono); font-size: 24px; color: var(--ink); font-weight: 500;">01</span>
+        </div>
+        <div style="font-family: var(--display); font-size: 46px; line-height: 1.05;">Member Registers</div>
+        <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+        <div class="body sm" style="color: var(--muted);">A new member creates a profile through their church. Data is captured securely into the central registry.</div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); display:flex; align-items:center; justify-content:center; margin-bottom: 28px;">
+          <span style="font-family: var(--mono); font-size: 24px; color: var(--ink); font-weight: 500;">02</span>
+        </div>
+        <div style="font-family: var(--display); font-size: 46px; line-height: 1.05;">Attendance Logged</div>
+        <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+        <div class="body sm" style="color: var(--muted);">Pastors mark weekly attendance. The system builds a live engagement record per member over time.</div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); display:flex; align-items:center; justify-content:center; margin-bottom: 28px;">
+          <span style="font-family: var(--mono); font-size: 24px; color: var(--ink); font-weight: 500;">03</span>
+        </div>
+        <div style="font-family: var(--display); font-size: 46px; line-height: 1.05;">Alerts Triggered</div>
+        <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+        <div class="body sm" style="color: var(--muted);">If a member misses services consecutively, the system flags them automatically for pastoral follow-up.</div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); display:flex; align-items:center; justify-content:center; margin-bottom: 28px;">
+          <span style="font-family: var(--mono); font-size: 24px; color: var(--ink); font-weight: 500;">04</span>
+        </div>
+        <div style="font-family: var(--display); font-size: 46px; line-height: 1.05;">Leadership Broadcasts</div>
+        <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+        <div class="body sm" style="color: var(--muted);">Admins send announcements and event invites — reaching all members instantly across channels.</div>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); display:flex; align-items:center; justify-content:center; margin-bottom: 28px;">
+          <span style="font-family: var(--mono); font-size: 24px; color: var(--ink); font-weight: 500;">05</span>
+        </div>
+        <div style="font-family: var(--display); font-size: 46px; line-height: 1.05;">Data Drives Decisions</div>
+        <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+        <div class="body sm" style="color: var(--muted);">Dashboards show growth trends, district comparisons, and engagement rates — real leadership intelligence.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07c · DAY IN THE LIFE ========== -->
+<section data-label="Day in the Life" class="slide">
+  <div class="header">
+    <span><span class="idx">04B</span> · System Usage</span>
+  </div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow">A day in the life</div>
+    <h2 class="display">CCMS adapts to <span class="italic" style="color: var(--gold);">every user.</span></h2>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 50px;">
+    <!-- Member -->
+    <div style="border-top: 2px solid var(--gold); padding-top: 28px;">
+      <div class="section-num" style="font-size: 28px;">Member</div>
+      <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+      <div style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Views personal profile and membership status</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Registers for upcoming church events with one tap</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Receives announcements and notices from leadership</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Submits prayer requests or updates contact info</div>
+        </div>
+      </div>
+    </div>
+    <!-- Pastor -->
+    <div style="border-top: 2px solid var(--rule); padding-top: 28px;">
+      <div class="section-num" style="font-size: 28px; color: var(--ink);">Pastor</div>
+      <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+      <div style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Opens dashboard to see who has been absent 3+ weeks</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Reviews new member registrations and approves profiles</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Sends a targeted message to a specific ministry group</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Checks weekly attendance summary before service ends</div>
+        </div>
+      </div>
+    </div>
+    <!-- District Admin -->
+    <div style="border-top: 2px solid var(--rule); padding-top: 28px;">
+      <div class="section-num" style="font-size: 28px; color: var(--ink);">District Admin</div>
+      <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+      <div style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Views district-wide membership and attendance map</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Broadcasts a district event to all churches at once</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Compares engagement metrics across churches in district</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Generates a monthly report for union leadership review</div>
+        </div>
+      </div>
+    </div>
+    <!-- Super Admin -->
+    <div style="border-top: 2px solid var(--rule); padding-top: 28px;">
+      <div class="section-num" style="font-size: 28px; color: var(--ink);">Super Admin</div>
+      <div style="height: 1px; background: var(--rule); margin: 20px 0;"></div>
+      <div style="display:flex; flex-direction:column; gap: 18px;">
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Monitors all districts and churches from a single view</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Configures global roles, permissions, and access policies</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Reviews national growth trends and flags underperforming regions</div>
+        </div>
+        <div style="display:flex; gap: 14px; align-items:flex-start;">
+          <div style="width: 6px; height: 6px; border-radius: 50%; background: var(--ink); margin-top: 12px; flex-shrink:0;"></div>
+          <div class="body sm" style="color: var(--muted);">Manages system settings, security, and user administration</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ -->
+<section data-label="Four Phases — grid" class="slide paper2" data-slide="phases-a">
+  <div class="header">
+    <span><span class="idx">04</span> · Implementation Roadmap</span>
+    <span class="nav">07 / 11</span>
+  </div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow">Four phases</div>
+    <h2 class="display" style="max-width: 1500px;">Value in <span class="italic" style="color: var(--gold);">months</span>, not years.</h2>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 60px; align-items: stretch;">
+    <!-- Phase 1 -->
+    <div style="background: var(--paper); padding: 40px 32px; display:flex; flex-direction:column; border-top: 2px solid var(--gold);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+        <div class="section-num">01</div>
+        <div style="font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase;">Active</div>
+      </div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 28px;">Foundation</div>
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); margin-top: 10px; text-transform: uppercase;">Months 1–6</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 14px;">
+        <li class="body sm">Member registry</li>
+        <li class="body sm">Church hierarchy</li>
+        <li class="body sm">Role-based access</li>
+        <li class="body sm">Management dashboard</li>
+      </ul>
+    </div>
+    <!-- Phase 2 -->
+    <div style="background: var(--paper); padding: 40px 32px; display:flex; flex-direction:column; border-top: 2px solid var(--rule);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+        <div class="section-num">02</div>
+        <div style="font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Planned</div>
+      </div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 28px;">Communication</div>
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); margin-top: 10px; text-transform: uppercase;">Months 6–12</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 14px;">
+        <li class="body sm">Broadcast engine</li>
+        <li class="body sm">Push notifications</li>
+        <li class="body sm">Event management</li>
+        <li class="body sm">Member messaging</li>
+      </ul>
+    </div>
+    <!-- Phase 3 -->
+    <div style="background: var(--paper); padding: 40px 32px; display:flex; flex-direction:column; border-top: 2px solid var(--rule);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+        <div class="section-num">03</div>
+        <div style="font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Planned</div>
+      </div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 28px;">Intelligence</div>
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); margin-top: 10px; text-transform: uppercase;">Year 1–2</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 14px;">
+        <li class="body sm">Attendance tracking</li>
+        <li class="body sm">Engagement analytics</li>
+        <li class="body sm">Lapsed-member detection</li>
+        <li class="body sm">Growth reporting</li>
+      </ul>
+    </div>
+    <!-- Phase 4 -->
+    <div style="background: var(--paper); padding: 40px 32px; display:flex; flex-direction:column; border-top: 2px solid var(--rule);">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+        <div class="section-num">04</div>
+        <div style="font-family: var(--mono); font-size: 13px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Future</div>
+      </div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 28px;">Expansion</div>
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); margin-top: 10px; text-transform: uppercase;">Year 2–3+</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <ul style="list-style: none; padding: 0; margin: 0; display:flex; flex-direction:column; gap: 14px;">
+        <li class="body sm">Mobile application</li>
+        <li class="body sm">Digital marketplace</li>
+        <li class="body sm">Financial integrations</li>
+        <li class="body sm">Global scalability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 07 · FOUR PHASES (variant B: horizontal timeline) ========== -->
+<section data-label="Four Phases — timeline" class="slide" data-slide="phases-b">
+  <div class="header">
+    <span><span class="idx">04</span> · Implementation Roadmap</span>
+    <span class="nav">07 / 11</span>
+  </div>
+
+  <div style="flex:1; display:flex; flex-direction:column; padding-top: 60px;">
+    <div>
+      <div class="eyebrow">Four phases · continuously evolving</div>
+      <h2 class="display" style="max-width: 1500px;">Every phase ships a <span class="italic" style="color: var(--gold);">working system.</span></h2>
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; justify-content:center; margin-top: 60px;">
+      <!-- timeline -->
+      <div style="position: relative; margin: 0 30px;">
+        <div style="position:absolute; left: 0; right: 0; top: 42px; height: 2px; background: var(--rule);"></div>
+        <div style="position:absolute; left: 0; top: 42px; width: 25%; height: 2px; background: var(--gold);"></div>
+
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr);">
+          <div style="padding-right: 40px;">
+            <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--gold); text-transform: uppercase;">Months 1–6</div>
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--gold); margin: 24px 0;"></div>
+            <div class="section-num">01</div>
+            <div style="font-family: var(--display); font-size: 56px; line-height: 1; margin-top: 12px;">Foundation</div>
+            <div class="body sm" style="color: var(--muted); margin-top: 18px; max-width: 360px;">Member registry, church structure, role access, management dashboard.</div>
+          </div>
+          <div style="padding-right: 40px;">
+            <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Months 6–12</div>
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); margin: 24px 0;"></div>
+            <div class="section-num" style="color: var(--ink);">02</div>
+            <div style="font-family: var(--display); font-size: 56px; line-height: 1; margin-top: 12px;">Communication</div>
+            <div class="body sm" style="color: var(--muted); margin-top: 18px; max-width: 360px;">Broadcast engine, notifications, event management, messaging.</div>
+          </div>
+          <div style="padding-right: 40px;">
+            <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Year 1–2</div>
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); margin: 24px 0;"></div>
+            <div class="section-num" style="color: var(--ink);">03</div>
+            <div style="font-family: var(--display); font-size: 56px; line-height: 1; margin-top: 12px;">Intelligence</div>
+            <div class="body sm" style="color: var(--muted); margin-top: 18px; max-width: 360px;">Attendance, analytics, lapsed-member detection, growth reporting.</div>
+          </div>
+          <div>
+            <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; color: var(--muted); text-transform: uppercase;">Year 2–3+</div>
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); margin: 24px 0;"></div>
+            <div class="section-num" style="color: var(--ink);">04</div>
+            <div style="font-family: var(--display); font-size: 56px; line-height: 1; margin-top: 12px;">Expansion</div>
+            <div class="body sm" style="color: var(--muted); margin-top: 18px; max-width: 360px;">Mobile app, digital marketplace, financials, global scalability.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 08 · TIMELINE / STATUS TABLE ========== -->
+<section data-label="Timeline" class="slide">
+  <div class="header">
+    <span><span class="idx">05</span> · Project Timeline</span>
+    <span class="nav">08 / 11</span>
+  </div>
+
+  <div style="padding-top: 60px;">
+    <div class="eyebrow">A living system · no planned end date</div>
+    <h2 class="display" style="max-width: 1500px;">The work begins <span class="italic" style="color: var(--gold);">on signature.</span></h2>
+  </div>
+
+  <div style="flex:1; display:flex; align-items:center; margin-top: 40px;">
+    <table style="width:100%; border-collapse: collapse; font-family: var(--sans);">
+      <thead>
+        <tr style="border-bottom: 2px solid var(--ink);">
+          <th style="text-align:left; font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; font-weight: 500; padding: 16px 12px 16px 0;">Phase</th>
+          <th style="text-align:left; font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; font-weight: 500; padding: 16px 12px;">Window</th>
+          <th style="text-align:left; font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; font-weight: 500; padding: 16px 12px;">Primary deliverable</th>
+          <th style="text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; font-weight: 500; padding: 16px 0 16px 12px;">Status</th>
+        </tr>
+      </thead>
+      <tbody style="font-size: 26px;">
+        <tr style="border-bottom: 1px solid var(--rule);">
+          <td style="padding: 28px 12px 28px 0; font-family: var(--display); font-size: 36px;"><span style="color: var(--gold); font-family: var(--mono); font-size: 24px; margin-right: 14px;">01</span>Foundation</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Months 1–6</td>
+          <td style="padding: 28px 12px;">Registry · hierarchy · roles · dashboard</td>
+          <td style="padding: 28px 0 28px 12px; text-align:right;"><span style="background: var(--gold); color: var(--ink); padding: 6px 14px; font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase;">Active</span></td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--rule);">
+          <td style="padding: 28px 12px 28px 0; font-family: var(--display); font-size: 36px;"><span style="color: var(--gold); font-family: var(--mono); font-size: 24px; margin-right: 14px;">02</span>Communication</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Months 6–12</td>
+          <td style="padding: 28px 12px;">Broadcast · notifications · events · messaging</td>
+          <td style="padding: 28px 0 28px 12px; text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">Planned</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--rule);">
+          <td style="padding: 28px 12px 28px 0; font-family: var(--display); font-size: 36px;"><span style="color: var(--gold); font-family: var(--mono); font-size: 24px; margin-right: 14px;">03</span>Intelligence</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Year 1–2</td>
+          <td style="padding: 28px 12px;">Attendance · analytics · lapsed detection</td>
+          <td style="padding: 28px 0 28px 12px; text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">Planned</td>
+        </tr>
+        <tr style="border-bottom: 1px solid var(--rule);">
+          <td style="padding: 28px 12px 28px 0; font-family: var(--display); font-size: 36px;"><span style="color: var(--gold); font-family: var(--mono); font-size: 24px; margin-right: 14px;">04</span>Expansion</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Year 2–3+</td>
+          <td style="padding: 28px 12px;">Mobile · marketplace · financials · global</td>
+          <td style="padding: 28px 0 28px 12px; text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">Future</td>
+        </tr>
+        <tr>
+          <td style="padding: 28px 12px 28px 0; font-family: var(--display); font-size: 36px; font-style: italic; color: var(--muted);"><span style="color: var(--gold); font-family: var(--mono); font-style: normal; font-size: 24px; margin-right: 14px;">∞</span>Evolution</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Year 3+</td>
+          <td style="padding: 28px 12px; color: var(--muted);">Continuous iteration and global expansion</td>
+          <td style="padding: 28px 0 28px 12px; text-align:right; font-family: var(--mono); font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);">Rolling</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 09b · TECH STACK ========== -->
+<section data-label="Technical Foundation" class="slide ink">
+  <div class="header">
+    <span><span class="idx" style="color: var(--gold)">06</span> · Technical Foundation</span>
+  </div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow" style="color: var(--gold-soft);">Recommended technology stack</div>
+    <h3 class="display" style="color: var(--paper); max-width: 1400px;">Enterprise-grade tools — chosen for <span class="italic" style="color: var(--gold-soft);">scalability, security, and longevity.</span></h3>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 32px; align-items: start;">
+    <div style="border-top: 2px solid var(--gold); padding-top: 28px;">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px;">Frontend</div>
+      <div style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="font-family: var(--sans); font-size: 28px; color: var(--paper); font-weight: 500;">React + TypeScript</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Tailwind CSS + shadcn/ui</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">TanStack Query</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">React Router v6</div>
+      </div>
+    </div>
+    <div style="border-top: 2px solid rgba(245,241,232,0.25); padding-top: 28px;">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px;">Backend</div>
+      <div style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="font-family: var(--sans); font-size: 28px; color: var(--paper); font-weight: 500;">Node.js + NestJS</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">PostgreSQL (multi-tenant)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Prisma ORM</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">JWT + RBAC Auth</div>
+      </div>
+    </div>
+    <div style="border-top: 2px solid rgba(245,241,232,0.25); padding-top: 28px;">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px;">Infrastructure</div>
+      <div style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="font-family: var(--sans); font-size: 28px; color: var(--paper); font-weight: 500;">Railway / Render</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Cloudflare (CDN + security)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">GitHub Actions (CI/CD)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Sentry (monitoring)</div>
+      </div>
+    </div>
+    <div style="border-top: 2px solid rgba(245,241,232,0.25); padding-top: 28px;">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 24px;">Communication</div>
+      <div style="display:flex; flex-direction:column; gap: 14px;">
+        <div style="font-family: var(--sans); font-size: 28px; color: var(--paper); font-weight: 500;">Twilio (SMS)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Firebase FCM (push)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">SendGrid (email)</div>
+        <div style="font-family: var(--sans); font-size: 28px; color: rgba(245,241,232,0.7);">Socket.io (real-time)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+ -->
+<section data-label="Investment" class="slide ink">
+  <div class="header">
+    <span><span class="idx" style="color: var(--gold)">06</span> · Investment Summary</span>
+    <span class="nav">09 / 11</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1.1fr 1fr; gap: 120px; padding-top: 60px;">
+    <div style="display:flex; flex-direction:column; justify-content:center;">
+      <div class="eyebrow" style="color: var(--gold-soft);">Initial investment</div>
+      <div style="font-family: var(--display); font-size: 260px; line-height: 0.88; color: var(--gold-soft); letter-spacing: -0.03em;">
+        GHS<br/>60,000
+      </div>
+      <div class="body lg" style="margin-top: 40px; color: rgba(245,241,232,0.78); max-width: 720px;">
+        Disbursed in stages. Tied to delivery milestones. <span style="font-style: italic; color: var(--gold-soft);">Fully accountable.</span>
+      </div>
+      <div style="font-family: var(--display); font-style: italic; font-size: 26px; color: rgba(245,241,232,0.55); margin-top: 32px; max-width: 700px; line-height: 1.4;">
+        No funds are requested upfront. Every payment follows proven delivery.
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; justify-content:center; border-left: 1px solid rgba(245,241,232,0.18); padding-left: 80px;">
+      <div class="eyebrow" style="color: var(--gold-soft);">Payment principles</div>
+      <div style="display:flex; flex-direction:column; gap: 36px; margin-top: 16px;">
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Milestone-linked</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Funds released only when defined milestones are met and verified.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Transparent</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Detailed expenditure reports at the close of every stage.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Church-overseen</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Leadership retains full visibility of spending throughout the engagement.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Phase-scoped</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Phases 2–4 are scoped and agreed as each prior phase concludes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 09 · INVESTMENT ========== -->
+<section data-label="Investment" class="slide ink">
+  <div class="header">
+    <span><span class="idx" style="color: var(--gold)">07</span> · Investment Summary</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.2fr; gap: 100px; padding-top: 50px;">
+    <div style="display:flex; flex-direction:column; justify-content:center;">
+      <div class="eyebrow" style="color: var(--gold-soft);">Phase 1 total</div>
+      <div style="font-family: var(--display); font-size: 200px; line-height: 0.88; color: var(--gold-soft); letter-spacing: -0.03em;">GHS<br/>60,000</div>
+      <div class="body lg" style="margin-top: 32px; color: rgba(245,241,232,0.78);">Stage-released · Milestone-linked · <span class="italic" style="color: var(--gold-soft);">Fully accountable.</span></div>
+      <div style="margin-top: 36px; display:flex; flex-direction:column; gap: 12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(245,241,232,0.12); padding-bottom: 12px;">
+          <div style="font-family: var(--display); font-size: 30px; color: var(--paper);">Development &amp; Engineering</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: var(--gold);">GHS 45,000 <span style="color:rgba(245,241,232,0.4); font-size:20px;">75%</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(245,241,232,0.12); padding-bottom: 12px;">
+          <div style="font-family: var(--display); font-size: 30px; color: var(--paper);">Cloud Infrastructure &amp; Tooling</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: var(--gold);">GHS 10,000 <span style="color:rgba(245,241,232,0.4); font-size:20px;">17%</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid rgba(245,241,232,0.12); padding-bottom: 12px;">
+          <div style="font-family: var(--display); font-size: 30px; color: var(--paper);">QA, Testing &amp; Security Review</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: var(--gold);">GHS 3,000 <span style="color:rgba(245,241,232,0.4); font-size:20px;">5%</span></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-family: var(--display); font-size: 30px; color: var(--paper);">Project Management &amp; Reporting</div>
+          <div style="font-family: var(--mono); font-size: 24px; color: var(--gold);">GHS 2,000 <span style="color:rgba(245,241,232,0.4); font-size:20px;">3%</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; justify-content:center; border-left: 1px solid rgba(245,241,232,0.18); padding-left: 80px;">
+      <div class="eyebrow" style="color: var(--gold-soft);">Payment principles</div>
+      <div style="display:flex; flex-direction:column; gap: 32px; margin-top: 16px;">
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Milestone-linked</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Funds released only when defined milestones are verified.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Transparent</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Detailed expenditure reports at the close of every stage.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Church-overseen</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Leadership retains full visibility of spending throughout.</div>
+        </div>
+        <div>
+          <div style="font-family: var(--display); font-size: 38px; color: var(--paper);">Phase-scoped</div>
+          <div class="body sm" style="color: rgba(245,241,232,0.62); margin-top: 6px;">Phases 2–4 scoped and agreed as each prior phase concludes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 09c · INVESTMENT GROWTH PATH ========== -->
+<section data-label="Investment Growth Path" class="slide paper2">
+  <div class="header">
+    <span><span class="idx">07B</span> · Investment Growth Path</span>
+  </div>
+
+  <div style="padding-top: 24px;">
+    <div class="eyebrow">Beyond Phase 1</div>
+    <h3 class="display" style="max-width: 1500px;">The system <span class="italic" style="color: var(--gold);">grows with the church.</span></h3>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 32px; align-items: start;">
+    <div style="background: var(--paper); padding: 40px; border-top: 2px solid var(--rule);">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Months 6–12</div>
+      <div class="section-num">Phase 2</div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 14px;">Communication</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <div style="font-family: var(--display); font-size: 72px; line-height: 1; color: var(--gold);">GHS 40–60K</div>
+      <div class="body sm" style="color: var(--muted); margin-top: 12px;">Indicative estimate. Final scope agreed at phase start.</div>
+    </div>
+    <div style="background: var(--paper); padding: 40px; border-top: 2px solid var(--rule);">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Year 1–2</div>
+      <div class="section-num">Phase 3</div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 14px;">Intelligence</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <div style="font-family: var(--display); font-size: 72px; line-height: 1; color: var(--gold);">GHS 50–70K</div>
+      <div class="body sm" style="color: var(--muted); margin-top: 12px;">Indicative estimate. Final scope agreed at phase start.</div>
+    </div>
+    <div style="background: var(--paper); padding: 40px; border-top: 2px solid var(--rule);">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-bottom: 8px;">Year 2–3+</div>
+      <div class="section-num">Phase 4</div>
+      <div style="font-family: var(--display); font-size: 52px; line-height: 1; margin-top: 14px;">Expansion</div>
+      <div style="height: 1px; background: var(--rule); margin: 24px 0;"></div>
+      <div style="font-family: var(--display); font-size: 60px; line-height: 1; color: var(--gold);">GHS 80–120K</div>
+      <div class="body sm" style="color: var(--muted); margin-top: 12px;">Indicative estimate. Final scope agreed at phase start.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px; background: var(--paper); padding: 28px 36px; border-left: 3px solid var(--gold); display:flex; justify-content:space-between; align-items:center; gap: 40px; overflow:hidden;">
+    <div style="flex:1; min-width:0;">
+      <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase;">Post-launch maintenance retainer</div>
+      <div class="body sm" style="color: var(--muted); margin-top: 6px;">Hosting, updates, bug fixes, security patches, monthly performance reports.</div>
+    </div>
+    <div style="font-family: var(--display); font-size: 40px; color: var(--gold); white-space: nowrap; flex-shrink:0;">GHS 2,500–3,000 / month</div>
+  </div>
+</section>
+
+ -->
+<section data-label="Value" class="slide paper2">
+  <div class="header">
+    <span><span class="idx">07</span> · Value Proposition</span>
+    <span class="nav">10 / 11</span>
+  </div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow">Three dimensions of value</div>
+    <h2 class="display" style="max-width: 1600px;">Visibility, <span class="italic" style="color: var(--gold);">efficiency</span>, intelligence — in service of the mission.</h2>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap: 80px; margin-top: 60px;">
+    <div style="display:flex; flex-direction:column;">
+      <div class="section-num" style="font-size: 40px;">01</div>
+      <div style="font-family: var(--display); font-size: 60px; line-height: 1; margin-top: 28px;">Member<br/>retention</div>
+      <div style="height: 1px; background: var(--rule); margin: 28px 0;"></div>
+      <div class="body sm" style="color: var(--muted); line-height: 1.5;">
+        Attendance tracking and lapsed-member detection let pastoral teams reach at-risk members <em>before</em> they disengage — proactive outreach drives materially higher retention.
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <div class="section-num" style="font-size: 40px;">02</div>
+      <div style="font-family: var(--display); font-size: 60px; line-height: 1; margin-top: 28px;">Operational<br/>efficiency</div>
+      <div style="height: 1px; background: var(--rule); margin: 28px 0;"></div>
+      <div class="body sm" style="color: var(--muted); line-height: 1.5;">
+        A unified platform replaces WhatsApp blasts, handwritten registers, and phone-tree logistics — freeing leadership to focus on ministry, not administration.
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column;">
+      <div class="section-num" style="font-size: 40px;">03</div>
+      <div style="font-family: var(--display); font-size: 60px; line-height: 1; margin-top: 28px;">Strategic<br/>intelligence</div>
+      <div style="height: 1px; background: var(--rule); margin: 28px 0;"></div>
+      <div class="body sm" style="color: var(--muted); line-height: 1.5;">
+        For the first time, leadership sees real-time, cross-church data — which districts are growing, which are struggling, where to deploy resources and leadership.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 11 · NEXT STEPS ========== -->
+<section data-label="Next Steps" class="slide">
+  <div class="header">
+    <span><span class="idx">08</span> · Next Steps</span>
+    <span class="nav">11 / 11</span>
+  </div>
+
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.2fr; gap: 120px; padding-top: 60px;">
+    <div style="display:flex; flex-direction:column; justify-content:space-between;">
+      <div>
+        <div class="eyebrow">From proposal to delivery</div>
+        <h2 class="display">
+          The church is <span class="italic" style="color: var(--gold);">ready.</span><br/>
+          CCMS is the infrastructure<br/>
+          that turns readiness<br/>
+          into action.
+        </h2>
+      </div>
+      <div style="border-top: 1px solid var(--rule); padding-top: 28px;">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;">Submitted by</div>
+        <div style="font-family: var(--display); font-size: 38px; margin-top: 6px;">Harrison Boateng Prince</div>
+        <div style="font-family: var(--mono); font-size: 24px; color: var(--muted); margin-top: 4px;">Software Developer · odameharrison13@gmail.com</div>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; justify-content:center; gap: 0;">
+      <div style="display:grid; grid-template-columns: 80px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); padding-top: 10px;">01</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 40px; line-height: 1.05;">Proposal review & approval</div>
+          <div class="body sm" style="color: var(--muted); margin-top: 6px;">Leadership formally endorses the project mandate.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 80px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); padding-top: 10px;">02</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 40px; line-height: 1.05;">Phase 1 scope definition</div>
+          <div class="body sm" style="color: var(--muted); margin-top: 6px;">Agree on the precise church and district scope for initial rollout.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 80px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); padding-top: 10px;">03</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 40px; line-height: 1.05;">Engagement agreement</div>
+          <div class="body sm" style="color: var(--muted); margin-top: 6px;">Formalize milestones and stage-release financial terms.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 80px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); padding-top: 10px;">04</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 40px; line-height: 1.05;">Development kickoff</div>
+          <div class="body sm" style="color: var(--muted); margin-top: 6px;">Begin Phase 1 development and stakeholder onboarding.</div>
+        </div>
+      </div>
+      <div style="display:grid; grid-template-columns: 80px 1fr; gap: 36px; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+        <div style="font-family: var(--mono); font-size: 24px; letter-spacing: 0.18em; color: var(--gold); padding-top: 10px;">05</div>
+        <div>
+          <div style="font-family: var(--display); font-size: 40px; line-height: 1.05;">Launch & scale</div>
+          <div class="body sm" style="color: var(--muted); margin-top: 6px;">Deploy Phase 1, onboard initial churches, open Phase 2 planning.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+
+<!-- ============ TWEAKS ============ -->
+<div id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>Palette</label>
+    <div class="opts" data-key="palette">
+      <button data-value="navy-gold">Navy</button>
+      <button data-value="ink-bronze">Ink</button>
+      <button data-value="sage">Sage</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Display font</label>
+    <div class="opts" data-key="display">
+      <button data-value="instrument">Instrument</button>
+      <button data-value="newsreader">Newsreader</button>
+      <button data-value="fraunces">Fraunces</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Cover variant</label>
+    <div class="opts" data-key="coverVariant">
+      <button data-value="a">A · Full</button>
+      <button data-value="b">B · Split</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Roadmap variant</label>
+    <div class="opts" data-key="phasesVariant">
+      <button data-value="a">A · Grid</button>
+      <button data-value="b">B · Timeline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/**
+ * <deck-stage> — reusable web component for HTML decks.
+ *
+ * Handles:
+ *  (a) speaker notes — reads <script type="application/json" id="speaker-notes">
+ *      and posts {slideIndexChanged: N} to the parent window on nav.
+ *  (b) keyboard navigation — ←/→, PgUp/PgDn, Space, Home/End, number keys.
+ *  (c) press R to reset to slide 0 (with a tasteful keyboard hint).
+ *  (d) bottom-center overlay showing slide count + hints, fades out on idle.
+ *  (e) auto-scaling — inner canvas is a fixed design size (default 1920×1080)
+ *      scaled with `transform: scale()` to fit the viewport, letterboxed.
+ *      Set the `noscale` attribute to render at authored size (1:1) — the
+ *      PPTX exporter sets this so its DOM capture sees unscaled geometry.
+ *  (f) print — `@media print` lays every slide out as its own page at the
+ *      design size, so the browser's Print → Save as PDF produces a clean
+ *      one-page-per-slide PDF with no extra setup.
+ *
+ * Slides are HIDDEN, not unmounted. Non-active slides stay in the DOM with
+ * `visibility: hidden` + `opacity: 0`, so their state (videos, iframes,
+ * form inputs, React trees) is preserved across navigation.
+ *
+ * Lifecycle event — the component dispatches a `slidechange` CustomEvent on
+ * itself whenever the active slide changes (including the initial mount).
+ * The event bubbles and composes out of shadow DOM, so you can listen on
+ * the <deck-stage> element or on document:
+ *
+ *   document.querySelector('deck-stage').addEventListener('slidechange', (e) => {
+ *     e.detail.index         // new 0-based index
+ *     e.detail.previousIndex // previous index, or -1 on init
+ *     e.detail.total         // total slide count
+ *     e.detail.slide         // the new active slide element
+ *     e.detail.previousSlide // the prior slide element, or null on init
+ *     e.detail.reason        // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+ *   });
+ *
+ * Persistence: current slide index is saved to localStorage keyed by the
+ * document path, so refresh returns you to the same place.
+ *
+ * Usage:
+ *   <deck-stage width="1920" height="1080">
+ *     <section data-label="Title">...</section>
+ *     <section data-label="Agenda">...</section>
+ *   </deck-stage>
+ *
+ * Slides are the direct element children of <deck-stage>. Each slide is
+ * automatically tagged with:
+ *   - data-screen-label="NN Label"   (1-indexed, for comment flow)
+ *   - data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text"
+ */
+
+(() => {
+  const DESIGN_W_DEFAULT = 1920;
+  const DESIGN_H_DEFAULT = 1080;
+  const STORAGE_PREFIX = 'deck-stage:slide:';
+  const OVERLAY_HIDE_MS = 1800;
+  const VALIDATE_ATTR = 'no_overflowing_text,no_overlapping_text,slide_sized_text';
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+
+  const stylesheet = `
+    :host {
+      position: fixed;
+      inset: 0;
+      display: block;
+      background: #000;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .stage {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .canvas {
+      position: relative;
+      transform-origin: center center;
+      flex-shrink: 0;
+      background: #fff;
+      will-change: transform;
+    }
+
+    /* Slides live in light DOM (via <slot>) so authored CSS still applies.
+       We absolutely position each slotted child to stack them. */
+    ::slotted(*) {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      box-sizing: border-box !important;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    ::slotted([data-deck-active]) {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    /* Tap zones for mobile — back/forward thirds like Stories.
+       Transparent, no visible UI, don't block the overlay. */
+    .tapzones {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      z-index: 2147482000;
+      pointer-events: none;
+    }
+    .tapzone {
+      flex: 1;
+      pointer-events: auto;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* Only activate tap zones on coarse pointers (touch devices). */
+    @media (hover: hover) and (pointer: fine) {
+      .tapzones { display: none; }
+    }
+
+    .overlay {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translate(-50%, 6px) scale(0.92);
+      filter: blur(6px);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      background: #000;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-feature-settings: "tnum" 1;
+      letter-spacing: 0.01em;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1), filter 260ms ease;
+      transform-origin: center bottom;
+      z-index: 2147483000;
+      user-select: none;
+    }
+    .overlay[data-visible] {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .btn {
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      color: inherit;
+      font: inherit;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 999px;
+      color: rgba(255,255,255,0.72);
+      transition: background 140ms ease, color 140ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover { background: rgba(255,255,255,0.12); color: #fff; }
+    .btn:active { background: rgba(255,255,255,0.18); }
+    .btn:focus { outline: none; }
+    .btn:focus-visible { outline: none; }
+    .btn::-moz-focus-inner { border: 0; }
+    .btn svg { width: 14px; height: 14px; display: block; }
+    .btn.reset {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 0 10px 0 12px;
+      gap: 6px;
+      color: rgba(255,255,255,0.72);
+    }
+    .btn.reset .kbd {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 16px;
+      height: 16px;
+      padding: 0 4px;
+      font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1;
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.12);
+      border-radius: 4px;
+    }
+
+    .count {
+      font-variant-numeric: tabular-nums;
+      color: #fff;
+      font-weight: 500;
+      padding: 0 8px;
+      min-width: 42px;
+      text-align: center;
+      font-size: 12px;
+    }
+    .count .sep { color: rgba(255,255,255,0.45); margin: 0 3px; font-weight: 400; }
+    .count .total { color: rgba(255,255,255,0.55); }
+
+    .divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.18);
+      margin: 0 2px;
+    }
+
+    /* ── Print: one page per slide, no chrome ────────────────────────────
+       The screen layout stacks every slide at inset:0 inside a scaled
+       canvas; for print we want them in document flow at the authored
+       design size so the browser paginates one slide per sheet. The
+       @page size is set from the width/height attributes via the inline
+       <style id="deck-stage-print-page"> that connectedCallback injects
+       into <head> (the @page at-rule has no effect inside shadow DOM). */
+    @media print {
+      :host {
+        position: static;
+        inset: auto;
+        background: none;
+        overflow: visible;
+        color: inherit;
+      }
+      .stage { position: static; display: block; }
+      .canvas {
+        transform: none !important;
+        width: auto !important;
+        height: auto !important;
+        background: none;
+        will-change: auto;
+      }
+      ::slotted(*) {
+        position: relative !important;
+        inset: auto !important;
+        width: var(--deck-design-w) !important;
+        height: var(--deck-design-h) !important;
+        box-sizing: border-box !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto;
+        break-after: page;
+        page-break-after: always;
+        break-inside: avoid;
+        overflow: hidden;
+      }
+      ::slotted(*:last-child) {
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .overlay, .tapzones { display: none !important; }
+    }
+  `;
+
+  class DeckStage extends HTMLElement {
+    static get observedAttributes() { return ['width', 'height', 'noscale']; }
+
+    constructor() {
+      super();
+      this._root = this.attachShadow({ mode: 'open' });
+      this._index = 0;
+      this._slides = [];
+      this._notes = [];
+      this._hideTimer = null;
+      this._mouseIdleTimer = null;
+      this._storageKey = STORAGE_PREFIX + (location.pathname || '/');
+
+      this._onKey = this._onKey.bind(this);
+      this._onResize = this._onResize.bind(this);
+      this._onSlotChange = this._onSlotChange.bind(this);
+      this._onMouseMove = this._onMouseMove.bind(this);
+      this._onTapBack = this._onTapBack.bind(this);
+      this._onTapForward = this._onTapForward.bind(this);
+    }
+
+    get designWidth() {
+      return parseInt(this.getAttribute('width'), 10) || DESIGN_W_DEFAULT;
+    }
+    get designHeight() {
+      return parseInt(this.getAttribute('height'), 10) || DESIGN_H_DEFAULT;
+    }
+
+    connectedCallback() {
+      this._render();
+      this._loadNotes();
+      this._syncPrintPageRule();
+      window.addEventListener('keydown', this._onKey);
+      window.addEventListener('resize', this._onResize);
+      window.addEventListener('mousemove', this._onMouseMove, { passive: true });
+      // Initial collection + layout happens via slotchange, which fires on mount.
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('keydown', this._onKey);
+      window.removeEventListener('resize', this._onResize);
+      window.removeEventListener('mousemove', this._onMouseMove);
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      if (this._mouseIdleTimer) clearTimeout(this._mouseIdleTimer);
+    }
+
+    attributeChangedCallback() {
+      if (this._canvas) {
+        this._canvas.style.width = this.designWidth + 'px';
+        this._canvas.style.height = this.designHeight + 'px';
+        this._canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+        this._canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+        this._fit();
+        this._syncPrintPageRule();
+      }
+    }
+
+    _render() {
+      const style = document.createElement('style');
+      style.textContent = stylesheet;
+
+      const stage = document.createElement('div');
+      stage.className = 'stage';
+
+      const canvas = document.createElement('div');
+      canvas.className = 'canvas';
+      canvas.style.width = this.designWidth + 'px';
+      canvas.style.height = this.designHeight + 'px';
+      canvas.style.setProperty('--deck-design-w', this.designWidth + 'px');
+      canvas.style.setProperty('--deck-design-h', this.designHeight + 'px');
+
+      const slot = document.createElement('slot');
+      slot.addEventListener('slotchange', this._onSlotChange);
+      canvas.appendChild(slot);
+      stage.appendChild(canvas);
+
+      // Tap zones (mobile): left third = back, right third = forward.
+      const tapzones = document.createElement('div');
+      tapzones.className = 'tapzones export-hidden';
+      tapzones.setAttribute('aria-hidden', 'true');
+      const tzBack = document.createElement('div');
+      tzBack.className = 'tapzone tapzone--back';
+      const tzMid = document.createElement('div');
+      tzMid.className = 'tapzone tapzone--mid';
+      tzMid.style.pointerEvents = 'none';
+      const tzFwd = document.createElement('div');
+      tzFwd.className = 'tapzone tapzone--fwd';
+      tzBack.addEventListener('click', this._onTapBack);
+      tzFwd.addEventListener('click', this._onTapForward);
+      tapzones.append(tzBack, tzMid, tzFwd);
+
+      // Overlay: compact, solid black, with clickable controls.
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay export-hidden';
+      overlay.setAttribute('role', 'toolbar');
+      overlay.setAttribute('aria-label', 'Deck controls');
+      overlay.innerHTML = `
+        <button class="btn prev" type="button" aria-label="Previous slide" title="Previous (←)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <span class="count" aria-live="polite"><span class="current">1</span><span class="sep">/</span><span class="total">1</span></span>
+        <button class="btn next" type="button" aria-label="Next slide" title="Next (→)">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
+        <span class="divider"></span>
+        <button class="btn reset" type="button" aria-label="Reset to first slide" title="Reset (R)">Reset<span class="kbd">R</span></button>
+      `;
+
+      overlay.querySelector('.prev').addEventListener('click', () => this._go(this._index - 1, 'click'));
+      overlay.querySelector('.next').addEventListener('click', () => this._go(this._index + 1, 'click'));
+      overlay.querySelector('.reset').addEventListener('click', () => this._go(0, 'click'));
+
+      this._root.append(style, stage, tapzones, overlay);
+      this._canvas = canvas;
+      this._slot = slot;
+      this._overlay = overlay;
+      this._countEl = overlay.querySelector('.current');
+      this._totalEl = overlay.querySelector('.total');
+    }
+
+    /** @page must live in the document stylesheet — it's a no-op inside
+     *  shadow DOM. Inject/update a single <head> style tag so the print
+     *  sheet matches the design size and Save-as-PDF yields one slide per
+     *  page with no margins. */
+    _syncPrintPageRule() {
+      const id = 'deck-stage-print-page';
+      let tag = document.getElementById(id);
+      if (!tag) {
+        tag = document.createElement('style');
+        tag.id = id;
+        document.head.appendChild(tag);
+      }
+      tag.textContent =
+        '@page { size: ' + this.designWidth + 'px ' + this.designHeight + 'px; margin: 0; } ' +
+        '@media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } ' +
+        '* { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }';
+    }
+
+    _onSlotChange() {
+      this._collectSlides();
+      this._restoreIndex();
+      this._applyIndex({ showOverlay: false, broadcast: true, reason: 'init' });
+      this._fit();
+    }
+
+    _collectSlides() {
+      const assigned = this._slot.assignedElements({ flatten: true });
+      this._slides = assigned.filter((el) => {
+        // Skip template/style/script nodes even if someone slots them.
+        const tag = el.tagName;
+        return tag !== 'TEMPLATE' && tag !== 'SCRIPT' && tag !== 'STYLE';
+      });
+
+      this._slides.forEach((slide, i) => {
+        const n = i + 1;
+        // Determine a label for comment flow: prefer explicit data-label,
+        // then an existing data-screen-label, then first heading, else "Slide".
+        let label = slide.getAttribute('data-label');
+        if (!label) {
+          const existing = slide.getAttribute('data-screen-label');
+          if (existing) {
+            // Strip any leading number the author may have included.
+            label = existing.replace(/^\s*\d+\s*/, '').trim() || existing;
+          }
+        }
+        if (!label) {
+          const h = slide.querySelector('h1, h2, h3, [data-title]');
+          if (h) label = (h.textContent || '').trim().slice(0, 40);
+        }
+        if (!label) label = 'Slide';
+        slide.setAttribute('data-screen-label', `${pad2(n)} ${label}`);
+
+        // Validation attribute for comment flow / auto-checks.
+        if (!slide.hasAttribute('data-om-validate')) {
+          slide.setAttribute('data-om-validate', VALIDATE_ATTR);
+        }
+
+        slide.setAttribute('data-deck-slide', String(i));
+      });
+
+      if (this._totalEl) this._totalEl.textContent = String(this._slides.length || 1);
+      if (this._index >= this._slides.length) this._index = Math.max(0, this._slides.length - 1);
+    }
+
+    _loadNotes() {
+      const tag = document.getElementById('speaker-notes');
+      if (!tag) { this._notes = []; return; }
+      try {
+        const parsed = JSON.parse(tag.textContent || '[]');
+        if (Array.isArray(parsed)) this._notes = parsed;
+      } catch (e) {
+        console.warn('[deck-stage] Failed to parse #speaker-notes JSON:', e);
+        this._notes = [];
+      }
+    }
+
+    _restoreIndex() {
+      try {
+        const raw = localStorage.getItem(this._storageKey);
+        if (raw != null) {
+          const n = parseInt(raw, 10);
+          if (Number.isFinite(n) && n >= 0 && n < this._slides.length) {
+            this._index = n;
+          }
+        }
+      } catch (e) { /* ignore */ }
+    }
+
+    _persistIndex() {
+      try { localStorage.setItem(this._storageKey, String(this._index)); }
+      catch (e) { /* ignore */ }
+    }
+
+    _applyIndex({ showOverlay = true, broadcast = true, reason = 'init' } = {}) {
+      if (!this._slides.length) return;
+      const prev = this._prevIndex == null ? -1 : this._prevIndex;
+      const curr = this._index;
+      this._slides.forEach((s, i) => {
+        if (i === curr) s.setAttribute('data-deck-active', '');
+        else s.removeAttribute('data-deck-active');
+      });
+      if (this._countEl) this._countEl.textContent = String(curr + 1);
+      this._persistIndex();
+
+      if (broadcast) {
+        // (1) Legacy: host-window postMessage for speaker-notes renderers.
+        try { window.postMessage({ slideIndexChanged: curr }, '*'); } catch (e) {}
+
+        // (2) In-page CustomEvent on the <deck-stage> element itself.
+        //     Bubbles and composes out of shadow DOM so slide code can listen:
+        //       document.querySelector('deck-stage').addEventListener('slidechange', e => {
+        //         e.detail.index, e.detail.previousIndex, e.detail.total, e.detail.slide, e.detail.reason
+        //       });
+        const detail = {
+          index: curr,
+          previousIndex: prev,
+          total: this._slides.length,
+          slide: this._slides[curr] || null,
+          previousSlide: prev >= 0 ? (this._slides[prev] || null) : null,
+          reason: reason, // 'init' | 'keyboard' | 'click' | 'tap' | 'api'
+        };
+        this.dispatchEvent(new CustomEvent('slidechange', {
+          detail,
+          bubbles: true,
+          composed: true,
+        }));
+      }
+
+      this._prevIndex = curr;
+      if (showOverlay) this._flashOverlay();
+    }
+
+    _flashOverlay() {
+      if (!this._overlay) return;
+      this._overlay.setAttribute('data-visible', '');
+      if (this._hideTimer) clearTimeout(this._hideTimer);
+      this._hideTimer = setTimeout(() => {
+        this._overlay.removeAttribute('data-visible');
+      }, OVERLAY_HIDE_MS);
+    }
+
+    _fit() {
+      if (!this._canvas) return;
+      // PPTX export sets noscale so the DOM capture sees authored-size
+      // geometry — the scaled canvas is in shadow DOM, so the exporter's
+      // resetTransformSelector can't reach .canvas.style.transform directly.
+      if (this.hasAttribute('noscale')) {
+        this._canvas.style.transform = 'none';
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const s = Math.min(vw / this.designWidth, vh / this.designHeight);
+      this._canvas.style.transform = `scale(${s})`;
+    }
+
+    _onResize() { this._fit(); }
+
+    _onMouseMove() {
+      // Keep overlay visible while mouse moves; hide after idle.
+      this._flashOverlay();
+    }
+
+    _onTapBack(e) {
+      e.preventDefault();
+      this._go(this._index - 1, 'tap');
+    }
+
+    _onTapForward(e) {
+      e.preventDefault();
+      this._go(this._index + 1, 'tap');
+    }
+
+    _onKey(e) {
+      // Ignore when the user is typing.
+      const t = e.target;
+      if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      const key = e.key;
+      let handled = true;
+
+      if (key === 'ArrowRight' || key === 'PageDown' || key === ' ' || key === 'Spacebar') {
+        this._go(this._index + 1, 'keyboard');
+      } else if (key === 'ArrowLeft' || key === 'PageUp') {
+        this._go(this._index - 1, 'keyboard');
+      } else if (key === 'Home') {
+        this._go(0, 'keyboard');
+      } else if (key === 'End') {
+        this._go(this._slides.length - 1, 'keyboard');
+      } else if (key === 'r' || key === 'R') {
+        this._go(0, 'keyboard');
+      } else if (/^[0-9]$/.test(key)) {
+        // 1..9 jump to that slide; 0 jumps to 10.
+        const n = key === '0' ? 9 : parseInt(key, 10) - 1;
+        if (n < this._slides.length) this._go(n, 'keyboard');
+      } else {
+        handled = false;
+      }
+
+      if (handled) {
+        e.preventDefault();
+        this._flashOverlay();
+      }
+    }
+
+    _go(i, reason = 'api') {
+      if (!this._slides.length) return;
+      const clamped = Math.max(0, Math.min(this._slides.length - 1, i));
+      if (clamped === this._index) {
+        this._flashOverlay();
+        return;
+      }
+      this._index = clamped;
+      this._applyIndex({ showOverlay: true, broadcast: true, reason });
+    }
+
+    // Public API ------------------------------------------------------------
+
+    /** Current slide index (0-based). */
+    get index() { return this._index; }
+    /** Total slide count. */
+    get length() { return this._slides.length; }
+    /** Programmatically navigate. */
+    goTo(i) { this._go(i, 'api'); }
+    next() { this._go(this._index + 1, 'api'); }
+    prev() { this._go(this._index - 1, 'api'); }
+    reset() { this._go(0, 'api'); }
+  }
+
+  if (!customElements.get('deck-stage')) {
+    customElements.define('deck-stage', DeckStage);
+  }
+})();
+
+</script>
+<script>
+(() => {
+  // ====== TWEAKS STATE ======
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "palette": "navy-gold",
+    "display": "instrument",
+    "coverVariant": "a",
+    "phasesVariant": "b"
+  }/*EDITMODE-END*/;
+
+  let state = { ...TWEAKS };
+
+  function apply() {
+    const html = document.documentElement;
+    if (state.palette === 'navy-gold') html.removeAttribute('data-palette');
+    else html.setAttribute('data-palette', state.palette);
+
+    if (state.display === 'instrument') html.removeAttribute('data-display');
+    else html.setAttribute('data-display', state.display);
+
+    // Show/hide slide variants
+    document.querySelectorAll('[data-slide="cover-a"]').forEach(el => el.style.display = state.coverVariant === 'a' ? '' : 'none');
+    document.querySelectorAll('[data-slide="cover-b"]').forEach(el => el.style.display = state.coverVariant === 'b' ? '' : 'none');
+    document.querySelectorAll('[data-slide="phases-a"]').forEach(el => el.style.display = state.phasesVariant === 'a' ? '' : 'none');
+    document.querySelectorAll('[data-slide="phases-b"]').forEach(el => el.style.display = state.phasesVariant === 'b' ? '' : 'none');
+
+    // Update button active states
+    document.querySelectorAll('#tweaks .opts').forEach(opts => {
+      const key = opts.getAttribute('data-key');
+      opts.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-value') === state[key]);
+      });
+    });
+  }
+
+  function set(key, value) {
+    state[key] = value;
+    apply();
+    try {
+      window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: value } }, '*');
+    } catch (e) {}
+  }
+
+  // Wire up panel buttons
+  document.querySelectorAll('#tweaks .opts').forEach(opts => {
+    const key = opts.getAttribute('data-key');
+    opts.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', () => set(key, btn.getAttribute('data-value')));
+    });
+  });
+
+  apply();
+
+  // Edit-mode protocol: listener first, then announce.
+  window.addEventListener('message', (e) => {
+    const d = e.data || {};
+    if (d.type === '__activate_edit_mode') document.getElementById('tweaks').classList.add('on');
+    else if (d.type === '__deactivate_edit_mode') document.getElementById('tweaks').classList.remove('on');
+  });
+  try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e) {}
+})();
+</script>
+</body>
+</html>
